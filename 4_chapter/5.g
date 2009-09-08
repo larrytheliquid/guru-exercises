@@ -19,6 +19,10 @@ induction(m n:nat) return { (mod2 (plus n m)) = (xor (mod2 n) (mod2 m)) } with
 end.
 Classify plus_parity.
 
+%- There may be a better way to reuse the proof in the examples via 
+   implication or existential introduction... or contra
+-%
+
 % An even number added to an even number is even
 Classify join (mod2 (plus two four)) ff.
 
