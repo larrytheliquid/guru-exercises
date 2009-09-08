@@ -1,6 +1,6 @@
 Include "../../../guru-lang/lib/nat.g".
 
-% Each natural numbers greater than 0 is the successor of a previous natural number
+% Each natural number greater than 0 is the successor of a previous natural number
 Define proof : Forall(x:nat)(u:{(lt Z x) = tt}). Exists(x’:nat). { x = (S x’) } :=
 foralli(x:nat)(u:{(lt Z x) = tt}).
 case x with
