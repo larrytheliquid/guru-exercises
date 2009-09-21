@@ -16,6 +16,9 @@ match l with
     ff => (scons n (max x n`) (insert x n` l`) 
            % { (le (max x n`) n) }
            [max_bound x n` n [le_ff_implies_le n x u`] u])
-  | tt => (scons x n l u`)
+  | tt => cast (scons x n l u`) by 
+          cong <slist *> symm
+          trans symm [max_comm n x]
+                [max_le n x u`]
   end
 end.
