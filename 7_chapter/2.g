@@ -5,7 +5,12 @@ Define insert : Fun(x n:nat)(l:<slist n>).<slist (max x n)> :=
 
 fun insert(x n:nat)(l:<slist n>):<slist (max x n)>.
 match l with
-  snil => (scons x Z snil [Z_le x])
+  snil => cast (scons x Z snil [Z_le x]) by
+          cong <slist *> symm
+          trans 
+            trans cong (max x *) inj <slist *> l_Eq
+                  [max_comm x Z]
+            join (max Z x) x
 | scons _ n` l` u => 
   match (le n x) by u` _ with
     ff => (scons n (max x n`) (insert x n` l`) 
